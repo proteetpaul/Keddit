@@ -4,35 +4,35 @@ import android.os.Parcel
 import android.os.Parcelable
 import com.example.kedditbysteps.common.adapters.AdapterConstants
 import com.example.kedditbysteps.common.adapters.ViewType
-import java.util.ArrayList
 
 data class RedditNews(
-    val after: String?,
-    val before: String?,
-    val news: ArrayList<RedditNewsItem>?
-) : Parcelable {
-
-    companion object {
-        @Suppress("unused")
-        @JvmField val CREATOR: Parcelable.Creator<RedditNews> = object: Parcelable.Creator<RedditNews> {
-            override fun createFromParcel(source: Parcel): RedditNews = RedditNews(source)
-            override fun newArray(size: Int): Array<RedditNews?> {
-                return arrayOfNulls(size)
-            }
-        }
-    }
-    constructor(source: Parcel) :this(source.readString(), source.readString(), source.createTypedArrayList(RedditNewsItem.CREATOR))
-
-    override fun describeContents(): Int {
-        return 0
-    }
-
-    override fun writeToParcel(dest: Parcel?, flags: Int) {
-        dest?.writeString(after)
-        dest?.writeString(before)
-        dest?.writeTypedList(news)
-    }
-}
+        val after: String?,
+        val before: String?,
+        val news: List<RedditNewsItem>
+)
+//    : Parcelable {
+//
+//    companion object {
+//        @Suppress("unused")
+//        @JvmField val CREATOR: Parcelable.Creator<RedditNews> = object: Parcelable.Creator<RedditNews> {
+//            override fun createFromParcel(source: Parcel): RedditNews = RedditNews(source)
+//            override fun newArray(size: Int): Array<RedditNews?> {
+//                return arrayOfNulls(size)
+//            }
+//        }
+//    }
+//    constructor(source: Parcel) :this(source.readString(), source.readString(), source.createTypedArrayList(RedditNewsItem.CREATOR))
+//
+//    override fun describeContents(): Int {
+//        return 0
+//    }
+//
+//    override fun writeToParcel(dest: Parcel?, flags: Int) {
+//        dest?.writeString(after)
+//        dest?.writeString(before)
+//        dest?.writeTypedList(news)
+//    }
+//}
 
 data class RedditNewsItem(
     val author: String?,
